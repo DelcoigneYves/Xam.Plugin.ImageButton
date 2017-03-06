@@ -8,7 +8,7 @@
     <licenseUrl>https://github.com/DelcoigneYves/Xam.Plugin.ImageButton/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/DelcoigneYves/Xam.Plugin.ImageButton</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>An ImageButton that supports selected states like they should in Xamarin Forms.</description>
+    <description>An ImageButton that supports selected states in Xamarin Forms.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Xamarin Android iOS Forms ImageButton</tags>
