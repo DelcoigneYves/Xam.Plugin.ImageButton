@@ -11,3 +11,6 @@ Only Xamarin.Android and Xamarin.iOS are supported.
 See the sample for a simple example on how to use this. 
 
 NOTE: so far the library only works with local files.
+
+If you are using Full linking on iOS, you need to disable linking for the shared project:
+--linkskip=ImageButton.Abstractions

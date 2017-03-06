@@ -112,7 +112,7 @@ namespace ImageButton.iOS
             }
 
 
-            if (Element == null || !Equals(Element.Source, imageSource))
+            if (Element == null)
             {
                 image?.Dispose();
                 return null;
