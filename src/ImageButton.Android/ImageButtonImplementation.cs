@@ -23,6 +23,11 @@ namespace ImageButton.Android
     {
         private bool _isDisposed;
 
+        public static void Init()
+        {
+            var temp = DateTime.Now;
+        } 
+
         protected override global::Android.Widget.ImageButton CreateNativeControl()
         {
             return new global::Android.Widget.ImageButton(Context);

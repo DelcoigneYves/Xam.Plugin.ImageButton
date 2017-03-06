@@ -17,11 +17,9 @@ namespace ImageButton.iOS
     {
         private bool _isDisposed;
 
-        public new static void Init()
+        public new static async void Init()
         {
-#pragma warning disable 0219
-            var dummy = new ImageButtonRenderer();
-#pragma warning restore 0219
+            var temp = DateTime.Now;
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Abstractions.ImageButton> e)
