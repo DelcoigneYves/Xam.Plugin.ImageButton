@@ -9,6 +9,7 @@ using ImageButton.Abstractions;
 using ImageButton.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Color = Android.Graphics.Color;
 using Object = Java.Lang.Object;
 using View = Android.Views.View;
 
@@ -40,6 +41,7 @@ namespace ImageButton.Android
                 if (Control == null)
                 {
                     var imageButton = CreateNativeControl();
+                    imageButton.SetBackgroundColor(Color.Transparent);
 
                     imageButton.SetOnClickListener(ButtonClickListener.Instance.Value);
                     imageButton.SetOnTouchListener(ButtonTouchListener.Instance.Value);
