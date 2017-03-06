@@ -152,7 +152,7 @@ namespace ImageButton.Android
                 // ignored
             }
 
-            if (Element == null || !Equals(Element.Source, imageSource))
+            if (Element == null)
             {
                 bitmap?.Dispose();
                 return null;
