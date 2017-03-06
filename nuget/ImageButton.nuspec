@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xam.Plugin.ImageButton</id>
+    <version>1.0.0</version>
+    <authors>Yves Delcoigne</authors>
+    <owners>Yves Delcoigne</owners>
+    <licenseUrl>https://github.com/DelcoigneYves/Xam.Plugin.ImageButton/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/DelcoigneYves/Xam.Plugin.ImageButton</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>An ImageButton that supports selected states like they should in Xamarin Forms.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Xamarin Android iOS Forms ImageButton</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="Xamarin.Forms" version="2.3.3.193" />
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Forms" version="2.3.3.193" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\ImageButton.Abstractions\bin\Release\ImageButton.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\ImageButton.Abstractions.dll" />
+    <file src="..\src\ImageButton.Abstractions\bin\Release\ImageButton.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\ImageButton.Abstractions.pdb" />
+    
+    <!--Xamarin.Android-->
+    <file src="..\src\ImageButton.Android\bin\Release\ImageButton.Android.dll" target="lib\MonoAndroid10\ImageButton.Android.dll" />
+    <file src="..\src\ImageButton.Android\bin\Release\ImageButton.Android.pdb" target="lib\MonoAndroid10\ImageButton.Android.pdb" />
+    <file src="..\src\ImageButton.Abstractions\bin\Release\ImageButton.Abstractions.dll" target="lib\MonoAndroid10\ImageButton.Abstractions.dll" />
+    <file src="..\src\ImageButton.Abstractions\bin\Release\ImageButton.Abstractions.pdb" target="lib\MonoAndroid10\ImageButton.Abstractions.pdb" />
+
+    <!--Xamarin.iOS Unified-->
+    <file src="..\src\ImageButton.iOS\bin\Release\ImageButton.iOS.dll" target="lib\Xamarin.iOS10\ImageButton.iOS.dll" />
+    <file src="..\src\ImageButton.Abstractions\bin\Release\ImageButton.Abstractions.dll" target="lib\Xamarin.iOS10\ImageButton.Abstractions.dll" />
+  </files>
+</package>
