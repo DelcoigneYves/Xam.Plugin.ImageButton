@@ -9,6 +9,9 @@ namespace ImageButton.Abstractions
         public static readonly BindableProperty SourceProperty = BindableProperty.Create(
             nameof(Source), typeof(ImageSource), typeof(ImageButton));
 
+        public static readonly BindableProperty PressedSourceProperty = BindableProperty.Create(
+            nameof(PressedSource), typeof(ImageSource), typeof(ImageButton));
+
         public static readonly BindableProperty SelectedSourceProperty = BindableProperty.Create(
             nameof(SelectedSource), typeof(ImageSource), typeof(ImageButton));
 
@@ -19,6 +22,12 @@ namespace ImageButton.Abstractions
         {
             get { return (ImageSource)GetValue(SourceProperty); }
             set { SetValue(SourceProperty, value); }
+        }
+
+        public ImageSource PressedSource
+        {
+            get { return (ImageSource)GetValue(PressedSourceProperty); }
+            set { SetValue(PressedSourceProperty, value); }
         }
 
         public ImageSource SelectedSource
