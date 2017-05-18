@@ -7,6 +7,7 @@
 
     <img:ImageButton
         Source="example_image"
+        PressedSource="example_image_pressed"
         SelectedSource="example_image_selected"
         VerticalOptions="Center"
         HorizontalOptions="Center" />

@@ -64,20 +64,26 @@ namespace ImageButton.Android
             base.OnElementPropertyChanged(sender, e);
 
             if (e.PropertyName == Abstractions.ImageButton.SourceProperty.PropertyName ||
+                e.PropertyName == Abstractions.ImageButton.PressedSourceProperty.PropertyName ||
                 e.PropertyName == Abstractions.ImageButton.SelectedSourceProperty.PropertyName)
             {
                 UpdateBitmap();
             }
         }
 
-        protected virtual StateListDrawable MakeSelector(Bitmap bitmap, Bitmap selectedBitmap)
+        protected virtual StateListDrawable MakeSelector(Bitmap bitmap, Bitmap pressedBitmap, Bitmap selectedBitmap)
         {
             BitmapDrawable image = null;
+            BitmapDrawable pressedImage = null;
             BitmapDrawable selectedImage = null;
 
             if (bitmap != null)
             {
                 image = new BitmapDrawable(bitmap);
+            }
+            if (pressedBitmap != null)
+            {
+                pressedImage = new BitmapDrawable(pressedBitmap);
             }
             if (selectedBitmap != null)
             {
@@ -85,9 +91,14 @@ namespace ImageButton.Android
             }
 
             var res = new StateListDrawable();
+
             if (selectedImage != null)
             {
-                res.AddState(new[] {global::Android.Resource.Attribute.StatePressed}, selectedImage);
+                res.AddState(new[] { global::Android.Resource.Attribute.StateSelected }, selectedImage);
+            }
+            if (pressedImage != null)
+            {
+                res.AddState(new[] {global::Android.Resource.Attribute.StatePressed}, pressedImage);
             }
             if (image != null)
             {
@@ -99,6 +110,7 @@ namespace ImageButton.Android
         protected virtual async void UpdateBitmap()
         {
             var defaultImage = await GetDefaultBitmap();
+            var pressedImage = await GetPressedBitmap();
             var selectedImage = await GetSelectedBitmap();
 
             if (!_isDisposed)
@@ -114,11 +126,11 @@ namespace ImageButton.Android
                 }
                 else
                 {
-                    Control.SetImageDrawable(MakeSelector(defaultImage, selectedImage));
+                    Control.SetImageDrawable(MakeSelector(defaultImage, pressedImage, selectedImage));
                 }
 
                 defaultImage?.Dispose();
-                selectedImage?.Dispose();
+                pressedImage?.Dispose();
 
                 ((IVisualElementController) Element).NativeSizeChanged();
             }
@@ -129,6 +141,13 @@ namespace ImageButton.Android
             var elementImage = Element.Source;
 
             return GetBitmap(elementImage);
+        }
+
+        protected virtual Task<Bitmap> GetPressedBitmap()
+        {
+            var elementPressedImage = Element.PressedSource;
+
+            return GetBitmap(elementPressedImage);
         }
 
         protected virtual Task<Bitmap> GetSelectedBitmap()
@@ -221,6 +240,7 @@ namespace ImageButton.Android
                     }
                     else if (e.Action == MotionEventActions.Up)
                     {
+                        v.Selected = !v.Selected;
                         buttonController?.SendReleased();
                     }
                 }
