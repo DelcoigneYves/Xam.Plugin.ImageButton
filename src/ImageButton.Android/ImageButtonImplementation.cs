@@ -31,7 +31,8 @@ namespace ImageButton.Android
 
         protected override global::Android.Widget.ImageButton CreateNativeControl()
         {
-            return new global::Android.Widget.ImageButton(Context);
+            var imageButton = new global::Android.Widget.ImageButton(Context);
+            return imageButton;
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Abstractions.ImageButton> e)
@@ -245,6 +246,7 @@ namespace ImageButton.Android
                     else if (e.Action == MotionEventActions.Up)
                     {
                         v.Selected = !v.Selected;
+                        buttonController?.OnSelectedChanged(v.Selected);
                         buttonController?.SendReleased();
                     }
                 }

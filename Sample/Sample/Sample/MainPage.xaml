@@ -10,6 +10,7 @@
         PressedSource="example_image_pressed"
         SelectedSource="example_image_selected"
         VerticalOptions="Center"
-        HorizontalOptions="Center" />
+        HorizontalOptions="Center"
+        SelectedChanged="ImageButton_OnSelectedChanged"/>
 
 </ContentPage>

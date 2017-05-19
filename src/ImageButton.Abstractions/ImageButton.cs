@@ -15,31 +15,22 @@ namespace ImageButton.Abstractions
         public static readonly BindableProperty SelectedSourceProperty = BindableProperty.Create(
             nameof(SelectedSource), typeof(ImageSource), typeof(ImageButton));
 
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create(
-            nameof(Command), typeof(ICommand), typeof(ImageButton));
-
         public ImageSource Source
         {
-            get { return (ImageSource)GetValue(SourceProperty); }
+            get { return (ImageSource) GetValue(SourceProperty); }
             set { SetValue(SourceProperty, value); }
         }
 
         public ImageSource PressedSource
         {
-            get { return (ImageSource)GetValue(PressedSourceProperty); }
+            get { return (ImageSource) GetValue(PressedSourceProperty); }
             set { SetValue(PressedSourceProperty, value); }
         }
 
         public ImageSource SelectedSource
         {
-            get { return (ImageSource)GetValue(SelectedSourceProperty); }
+            get { return (ImageSource) GetValue(SelectedSourceProperty); }
             set { SetValue(SelectedSourceProperty, value); }
-        }
-
-        public ICommand Command
-        {
-            get { return (ICommand)GetValue(CommandProperty); }
-            set { SetValue(CommandProperty, value); }
         }
 
         public void SendReleased()
@@ -57,10 +48,25 @@ namespace ImageButton.Abstractions
             Clicked?.Invoke(this, EventArgs.Empty);
         }
 
+        public void OnSelectedChanged(bool selected)
+        {
+            SelectedChanged?.Invoke(this, new SelectedChangedArgs
+            {
+                Selected = selected
+            });
+        }
+
         public event EventHandler Clicked;
 
         public event EventHandler Pressed;
 
         public event EventHandler Released;
+
+        public event EventHandler<SelectedChangedArgs> SelectedChanged;
+
+        public class SelectedChangedArgs : EventArgs
+        {
+            public bool Selected { get; set; }
+        }
     }
 }
