@@ -5,6 +5,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Runtime;
 using Android.Views;
+using Android.Widget;
 using ImageButton.Abstractions;
 using ImageButton.Android;
 using Xamarin.Forms;
@@ -46,6 +47,9 @@ namespace ImageButton.Android
                 if (Control == null)
                 {
                     var imageButton = CreateNativeControl();
+                    imageButton.SetScaleType(ImageView.ScaleType.FitCenter);
+                    imageButton.SetAdjustViewBounds(true);
+                    imageButton.SetPadding(0, 0, 0, 0);
                     imageButton.SetBackgroundColor(Color.Transparent);
 
                     imageButton.SetOnClickListener(ButtonClickListener.Instance.Value);
