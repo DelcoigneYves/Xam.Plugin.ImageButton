@@ -144,6 +144,7 @@ namespace ImageButton.iOS
         {
             Control.Selected = !Control.Selected;
 
+            ((IImageButtonController) Element)?.OnSelectedChanged(Control.Selected);
             ((IImageButtonController) Element)?.SendReleased();
             ((IImageButtonController) Element)?.SendClicked();
         }

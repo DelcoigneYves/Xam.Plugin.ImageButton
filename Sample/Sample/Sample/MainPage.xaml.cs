@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void ImageButton_OnSelectedChanged(object sender, ImageButton.Abstractions.ImageButton.SelectedChangedArgs e)
+        {
+            Debug.WriteLine("Selected: " + e.Selected);
         }
     }
 }

@@ -5,6 +5,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Runtime;
 using Android.Views;
+using Android.Widget;
 using ImageButton.Abstractions;
 using ImageButton.Android;
 using Xamarin.Forms;
@@ -30,7 +31,8 @@ namespace ImageButton.Android
 
         protected override global::Android.Widget.ImageButton CreateNativeControl()
         {
-            return new global::Android.Widget.ImageButton(Context);
+            var imageButton = new global::Android.Widget.ImageButton(Context);
+            return imageButton;
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Abstractions.ImageButton> e)
@@ -46,6 +48,9 @@ namespace ImageButton.Android
                 if (Control == null)
                 {
                     var imageButton = CreateNativeControl();
+                    imageButton.SetScaleType(ImageView.ScaleType.FitCenter);
+                    imageButton.SetAdjustViewBounds(true);
+                    imageButton.SetPadding(0, 0, 0, 0);
                     imageButton.SetBackgroundColor(Color.Transparent);
 
                     imageButton.SetOnClickListener(ButtonClickListener.Instance.Value);
@@ -241,6 +246,7 @@ namespace ImageButton.Android
                     else if (e.Action == MotionEventActions.Up)
                     {
                         v.Selected = !v.Selected;
+                        buttonController?.OnSelectedChanged(v.Selected);
                         buttonController?.SendReleased();
                     }
                 }
