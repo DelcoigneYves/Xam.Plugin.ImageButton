@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xam.Plugin.ImageButton</id>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
     <authors>Yves Delcoigne</authors>
     <owners>Yves Delcoigne</owners>
     <licenseUrl>https://github.com/DelcoigneYves/Xam.Plugin.ImageButton/blob/master/LICENSE</licenseUrl>
