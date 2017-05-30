@@ -92,21 +92,21 @@ namespace ImageButton.iOS
 
         protected virtual Task<UIImage> GetDefaultImage()
         {
-            var elementImage = Element.Source;
+            var elementImage = Element?.Source;
 
             return GetImage(elementImage);
         }
 
         protected virtual Task<UIImage> GetPressedImage()
         {
-            var pressedElementImage = Element.PressedSource;
+            var pressedElementImage = Element?.PressedSource;
 
             return GetImage(pressedElementImage);
         }
 
         protected virtual Task<UIImage> GetSelectedImage()
         {
-            var selectedElementImage = Element.SelectedSource;
+            var selectedElementImage = Element?.SelectedSource;
 
             return GetImage(selectedElementImage);
         }
